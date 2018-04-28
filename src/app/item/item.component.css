@@ -1,0 +1,51 @@
+
+.item {
+  position: relative;
+  cursor: pointer;
+  background-color: #EEE;
+  margin: .5em;
+  border-radius: 4px;
+  padding: 15px 10px;
+}
+
+.item:hover {
+  color: #607D8B;
+  background-color: #DDD;
+ /* left: .1em;*/
+}
+
+.item .check {
+  text-align: center;
+  width: 40px;
+  border: none;
+}
+
+.fa-check-circle {
+  color: darkgray;
+
+}
+
+.fa-check-circle:hover {
+  color: green;
+}
+
+
+
+.item .remove-btn {
+  border: 0;
+  background-color: transparent;
+  display: none;
+  position: absolute;
+  right: 10px;
+}
+
+.item:hover .remove-btn {
+  color: lightcoral;
+  display: inline-block;
+}
+
+
+.item .remove-btn:hover {
+  color: red;
+  display: inline-block;
+}
