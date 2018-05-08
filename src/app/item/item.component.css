@@ -9,27 +9,18 @@
 }
 
 .item:hover {
-  color: #607D8B;
+  color: #5d6269;
   background-color: #DDD;
- /* left: .1em;*/
 }
 
-.item .check {
-  text-align: center;
-  width: 40px;
-  border: none;
-}
-
-.fa-check-circle {
+.fa-check {
   color: darkgray;
-
+  padding: 5px;
 }
 
-.fa-check-circle:hover {
-  color: green;
+.fa-check:hover {
+  color: #50c600;
 }
-
-
 
 .item .remove-btn {
   border: 0;
@@ -37,6 +28,8 @@
   display: none;
   position: absolute;
   right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .item:hover .remove-btn {
@@ -49,3 +42,11 @@
   color: red;
   display: inline-block;
 }
+
+
+
+.item .edit-lbl {
+  margin-left: 10px;
+  font-size: 28px;
+}
+

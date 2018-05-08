@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Item} from '../models/item';
 import {List} from '../models/list';
+import {ListService} from '../list.service';
 
 @Component({
   selector: 'app-list',
@@ -8,26 +9,24 @@ import {List} from '../models/list';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  @Input() list: List;
+  list: List;
+  item: Item;
 
-  constructor() {
+  constructor(private listService: ListService) {
   }
 
   ngOnInit() {
-    this.list = new List('nowa lista');
-    this.add('first');
-    this.add('second');
+    this.list = this.listService.getList();
+    this.item = new Item('');
   }
 
-  add(name: string): void {
-    name = name.trim();
-    if (!name) {
-      return;
-    }
-    this.list.items.push(new Item(name));
+  onAddToList(): void {
+     this.listService.addToList(this.item);
+
+     this.item = new Item('');
   }
 
-  remove(item: Item): void {
-    this.list.items = this.list.items.filter(i => i !== item);
+  onRemoveItem(itemUuid: number): void {
+    this.listService.removeFromList(itemUuid);
   }
 }

@@ -1,7 +1,35 @@
 .list {
   margin: auto;
-  list-style-type: none;
-  padding: 0;
-  width: 40%;
-  display: block;
+  width: 50%;
+  position: relative;
+}
+
+.list .add-to-list {
+  position: relative;
+  cursor: pointer;
+  background-color: #EEE;
+  margin: .5em;
+  border-radius: 4px;
+  padding: 10px 10px 10px 40px;
+}
+
+.add-to-list input.form-control {
+  font-size: 30px;
+  height: auto;
+  background-color: #00000005;
+  border: 1px solid #e1e1e1;
+}
+
+.add-to-list .form-group {
+  margin-bottom: 0;
+}
+
+.form-control:focus {
+  background-color: #66afe9;
+  border: 1px solid #ccc
+}
+
+.fa-angle-double-right {
+  color: darkgray;
+  padding: 5px;
 }

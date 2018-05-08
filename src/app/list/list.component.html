@@ -1,7 +1,22 @@
 <div style="text-align:center">
-  <h2>{{ list.name | uppercase }}</h2>
+  <h1>{{ list.name | uppercase }}</h1>
 </div>
+
 <div class="list">
-  <app-item *ngFor="let item of list.items" [item]="item"></app-item>
+
+  <i class="fas fa-angle-double-right"></i>
+
+  <div class="add-to-list">
+
+    <form (ngSubmit)="onAddToList()" #addToListForm="ngForm">
+
+      <div class="form-group">
+        <input type="text" class="form-control" id="addToDo" name="addToDo" placeholder="Add TODO"  [(ngModel)]="item.name">
+      </div>
+
+    </form>
+  </div>
+
+  <app-item *ngFor="let item of list.items" [item]="item" (removeEmitter)="onRemoveItem($event)"></app-item>
 </div>
 
