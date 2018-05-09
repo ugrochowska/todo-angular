@@ -4,12 +4,12 @@ export class Item {
 
   private readonly _id: number;
   private _name: string;
-  private status: ItemStatus;
+  private _status: ItemStatus;
 
   constructor(name: string) {
     this._name = name.trim();
     this._id =  uuid();
-    this.status = ItemStatus.tbd;
+    this._status = ItemStatus.tbd;
   }
 
   get id(): number {
@@ -23,9 +23,16 @@ export class Item {
   set name(value: string) {
     this._name = value;
   }
+
+  get status(): ItemStatus {
+    return this._status;
+  }
+
+  changeState() {
+    this._status = this._status === ItemStatus.tbd ? ItemStatus.done : ItemStatus.tbd;
+  }
 }
 
 export enum ItemStatus {
-  tbd = 1,
-  done = 2
-}
+  tbd = 'tbd',
+  done = 'done'}

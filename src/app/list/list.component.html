@@ -4,11 +4,11 @@
 
 <div class="list">
 
-  <i class="fas fa-angle-double-right"></i>
-
   <div class="add-to-list">
 
-    <form (ngSubmit)="onAddToList()" #addToListForm="ngForm">
+    <i class="fas fa-angle-double-right fa-2x"></i>
+
+    <form (ngSubmit)="onAddToList()" #addToListForm="ngForm" autocomplete="off">
 
       <div class="form-group">
         <input type="text" class="form-control" id="addToDo" name="addToDo" placeholder="Add TODO"  [(ngModel)]="item.name">
@@ -17,6 +17,6 @@
     </form>
   </div>
 
-  <app-item *ngFor="let item of list.items" [item]="item" (removeEmitter)="onRemoveItem($event)"></app-item>
+  <app-item *ngFor="let item of list.items" [item]="item" (onRemove)="onRemoveItem($event)" (onCheck)="onCheckItem($event)"></app-item>
 </div>
 

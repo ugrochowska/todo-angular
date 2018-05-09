@@ -8,14 +8,19 @@ import {Item} from '../models/item';
 })
 export class ItemComponent implements OnInit {
   @Input() item: Item;
-  @Output() removeEmitter = new EventEmitter<number>();
+  @Output() onRemove = new EventEmitter<number>();
+  @Output() onCheck = new EventEmitter<number>();
 
   constructor() { }
 
   ngOnInit() {}
 
   remove(uuid: number) {
-    this.removeEmitter.emit(uuid);
+    this.onRemove.emit(uuid);
+  }
+
+  check(uuid: number) {
+    this.onCheck.emit(uuid);
   }
 
   edit() {

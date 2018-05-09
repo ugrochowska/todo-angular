@@ -1,7 +1,6 @@
 
 .item {
   position: relative;
-  cursor: pointer;
   background-color: #EEE;
   margin: .5em;
   border-radius: 4px;
@@ -13,12 +12,21 @@
   background-color: #DDD;
 }
 
-.fa-check {
+.item .check-btn {
+  border: 0;
+  background-color: transparent;
   color: darkgray;
   padding: 5px;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
 }
 
-.fa-check:hover {
+.item.status-done .check-btn {
+  color: #50c600;
+}
+
+.item:hover .check-btn {
   color: #50c600;
 }
 
@@ -30,13 +38,14 @@
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
+  cursor: pointer;
 }
 
 .item:hover .remove-btn {
   color: lightcoral;
   display: inline-block;
+  outline: none;
 }
-
 
 .item .remove-btn:hover {
   color: red;
@@ -48,5 +57,9 @@
 .item .edit-lbl {
   margin-left: 10px;
   font-size: 28px;
+  cursor: text;
 }
 
+.item.status-done .edit-lbl {
+  text-decoration: line-through;
+}

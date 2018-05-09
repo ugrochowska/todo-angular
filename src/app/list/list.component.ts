@@ -29,4 +29,8 @@ export class ListComponent implements OnInit {
   onRemoveItem(itemUuid: number): void {
     this.listService.removeFromList(itemUuid);
   }
+
+  onCheckItem(itemUuid: number): void {
+    this.listService.changeItemState(itemUuid);
+  }
 }

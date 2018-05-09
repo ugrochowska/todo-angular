@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {List} from './models/list';
-import {Item} from './models/item';
+import {Item, ItemStatus} from './models/item';
 
 @Injectable()
 export class ListService {
@@ -12,7 +12,7 @@ export class ListService {
     if (!newItem.name) {
       return;
     }
-    this.list.items.push(newItem);
+    this.list.items.unshift(newItem);
   }
 
   removeFromList(uuid: number): void {
@@ -28,5 +28,23 @@ export class ListService {
     this.addToList(new Item('first'));
     this.addToList(new Item('second'));
     return this.list;
+  }
+
+  changeItemState(uuid: number) {
+    if (!uuid) {
+      return;
+    }
+    const index = this.list.items.findIndex(item => item.id === uuid);
+    const checkedItem = this.list.items[index];
+    checkedItem.changeState();
+
+    this.list.items.splice(index, 1);
+
+    if (checkedItem.status === ItemStatus.done) {
+      this.list.items.push(checkedItem);
+    } else {
+      this.list.items.unshift(checkedItem);
+    }
+
   }
 }

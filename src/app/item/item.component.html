@@ -1,5 +1,6 @@
-<div class="item">
-  <i class="fas fa-check fa-2x"></i>
+<div class="item status-{{ item.status }}">
+
+  <button class="check-btn" (click)="check(item.id)"><i class="fas fa-check fa-2x"></i></button>
 
   <label class="edit-lbl" (dblclick)="edit()">{{ item.name }}</label>
 
