@@ -10,5 +10,8 @@ export class List {
     this.name = name;
     this.id = uuid();
     this.items = [];
+
+    this.items.unshift(new Item('First'));
+    this.items.unshift(new Item('Second'));
   }
 }

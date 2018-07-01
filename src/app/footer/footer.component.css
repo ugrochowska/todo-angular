@@ -1,0 +1,7 @@
+.footer {
+  position: relative;
+  background-color: #dcdcdc;
+  margin: .5em;
+  border-radius: 4px;
+  padding: 15px 10px;
+}

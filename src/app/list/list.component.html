@@ -17,6 +17,8 @@
     </form>
   </div>
 
-  <app-item *ngFor="let item of list.items" [item]="item" (onRemove)="onRemoveItem($event)" (onCheck)="onCheckItem($event)"></app-item>
+  <app-item *ngFor="let item of (list.items | filteredList:this.status) " [item]="item" (onRemove)="onRemoveItem($event)" (onCheck)="onCheckItem($event)"></app-item>
+
+  <app-footer></app-footer>
 </div>
 

@@ -12,7 +12,7 @@ export class ListService {
     if (!newItem.name) {
       return;
     }
-    this.list.items.unshift(newItem);
+    this.list.items = [newItem, ...this.list.items];
   }
 
   removeFromList(uuid: number): void {
@@ -20,13 +20,11 @@ export class ListService {
       return;
     }
     const index = this.list.items.findIndex(item => item.id === uuid);
-    this.list.items.splice(index, 1);
-    //     this.list.items = this.list.items.filter(i => i !== item);
+    this.list.items.splice(index, 1)
+    this.list.items = [...this.list.items];
   }
 
   getList(): List {
-    this.addToList(new Item('first'));
-    this.addToList(new Item('second'));
     return this.list;
   }
 
@@ -41,10 +39,9 @@ export class ListService {
     this.list.items.splice(index, 1);
 
     if (checkedItem.status === ItemStatus.done) {
-      this.list.items.push(checkedItem);
+      this.list.items = [...this.list.items, checkedItem];
     } else {
-      this.list.items.unshift(checkedItem);
+      this.list.items = [checkedItem, ...this.list.items];
     }
-
   }
 }

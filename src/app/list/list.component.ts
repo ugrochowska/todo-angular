@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Item} from '../models/item';
+import {Item, ItemStatus} from '../models/item';
 import {List} from '../models/list';
 import {ListService} from '../list.service';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -11,8 +12,19 @@ import {ListService} from '../list.service';
 export class ListComponent implements OnInit {
   list: List;
   item: Item;
+  status: ItemStatus;
 
-  constructor(private listService: ListService) {
+  constructor(
+    private listService: ListService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    router.events.subscribe((val) => {
+      if ( val instanceof NavigationEnd ) {
+        this.status = this.route.snapshot.paramMap.get('status') as ItemStatus;
+      }
+    });
+
   }
 
   ngOnInit() {

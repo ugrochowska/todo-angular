@@ -35,4 +35,5 @@ export class Item {
 
 export enum ItemStatus {
   tbd = 'tbd',
-  done = 'done'}
+  done = 'done'
+}
