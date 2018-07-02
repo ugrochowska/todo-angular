@@ -1,7 +1,7 @@
 <div class="footer">
   <ul>
-    <li><a routerLink="/list">All</a></li>
-    <li><a routerLink="/list/tbd">Active</a></li>
-    <li><a routerLink="/list/done">Completed</a></li>
+    <li><a routerLink="/list" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">All</a></li>
+    <li><a routerLink="/list/tbd" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Active</a></li>
+    <li><a routerLink="/list/done" routerLinkActive="active" >Completed</a></li>
   </ul>
 </div>
