@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {AfterContentInit, Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Item} from '../models/item';
 
 @Component({
@@ -6,14 +6,24 @@ import {Item} from '../models/item';
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.css']
 })
-export class ItemComponent implements OnInit {
+export class ItemComponent implements AfterContentInit {
   @Input() item: Item;
   @Output() onRemove = new EventEmitter<number>();
   @Output() onCheck = new EventEmitter<number>();
+  @Output() onItemEdit = new EventEmitter<boolean>();
 
-  constructor() { }
+  @ViewChild('name') labelEdit;
 
-  ngOnInit() {}
+  isEditing: boolean;
+  oldName: string;
+
+  constructor() {
+    this.isEditing = false;
+  }
+
+  ngAfterContentInit() {
+    this.oldName = this.item.name;
+  }
 
   remove(uuid: number) {
     this.onRemove.emit(uuid);
@@ -24,7 +34,16 @@ export class ItemComponent implements OnInit {
   }
 
   edit() {
-    alert('edit');
-    return;
+    this.isEditing = true;
+    this.onItemEdit.emit(true);
+  }
+
+  onEditToDo(): void {
+    if (this.labelEdit.invalid) {
+      this.item.name = this.oldName;
+    }
+    this.isEditing = false;
+    this.oldName = this.item.name;
+    this.onItemEdit.emit(false);
   }
 }

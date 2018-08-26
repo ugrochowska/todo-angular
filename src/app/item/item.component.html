@@ -2,7 +2,38 @@
 
   <button class="check-btn" (click)="check(item.id)"><i class="fas fa-check fa-2x"></i></button>
 
-  <label class="edit-lbl" (dblclick)="edit()">{{ item.name }}</label>
+  <div *ngIf="isEditing; then inputBlock; else labelBlock"></div>
+
+  <ng-template #inputBlock >
+    <div class="add-to-list">
+
+      <form (ngSubmit)="onEditToDo()" #itemLabelForm="ngForm" autocomplete="off" >
+        <div class="form-group" >
+          <input type="text" class="form-control" id="name"
+                 appAutoFocus
+                 required
+                 minlength="2"
+                 [(ngModel)]="item.name" name="name"
+                 (blur)="onEditToDo()"
+                 #name="ngModel"
+                 #spy>
+          <p>{{spy.className}}</p>
+
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+            <div *ngIf="name.errors.required">Name is required.</div>
+            <div *ngIf="name.errors.minlength">Name must be at least 2 characters long.</div>
+          </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-success" [disabled]="!itemLabelForm.form.valid">Submit</button>
+      </form>
+    </div>
+  </ng-template>
+
+  <ng-template #labelBlock>
+    <label class="edit-lbl" (dblclick)="edit()">{{ item.name }}</label>
+  </ng-template>
 
   <button class="remove-btn" (click)="remove(item.id)"><i class="fas fa-times fa-2x"></i></button>
 
