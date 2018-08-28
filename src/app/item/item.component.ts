@@ -1,4 +1,4 @@
-import {AfterContentInit, Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {AfterContentInit, Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import {Item} from '../models/item';
 
 @Component({
@@ -10,7 +10,6 @@ export class ItemComponent implements AfterContentInit {
   @Input() item: Item;
   @Output() onRemove = new EventEmitter<number>();
   @Output() onCheck = new EventEmitter<number>();
-  @Output() onItemEdit = new EventEmitter<boolean>();
 
   @ViewChild('name') labelEdit;
 
@@ -35,7 +34,6 @@ export class ItemComponent implements AfterContentInit {
 
   edit() {
     this.isEditing = true;
-    this.onItemEdit.emit(true);
   }
 
   onEditToDo(): void {
@@ -44,6 +42,5 @@ export class ItemComponent implements AfterContentInit {
     }
     this.isEditing = false;
     this.oldName = this.item.name;
-    this.onItemEdit.emit(false);
   }
 }

@@ -20,6 +20,7 @@
   cursor: pointer;
   user-select: none;
   outline: none;
+  vertical-align: top;
 }
 
 .item.status-done .check-btn {
@@ -52,14 +53,39 @@
   display: inline-block;
 }
 
-
+.item .remove-btn[hidden] {
+  display: none;
+}
 
 .item .edit-lbl {
   margin-left: 10px;
   font-size: 28px;
-  cursor: text;
+  cursor: pointer;
 }
 
 .item.status-done .edit-lbl {
   text-decoration: line-through;
+}
+
+.item .form-control  {
+  margin-left: 10px;
+  font-size: 28px;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0 0;
+  height: inherit;
+}
+
+.item .form-group  {
+  margin-bottom: 5px;
+}
+
+.item .add-to-list {
+  display: inline-block;
+}
+
+.item .label-error{
+  color: red;
 }
