@@ -9,8 +9,10 @@ import {FooterComponent} from './footer/footer.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ListService} from './list.service';
 import {AppRoutingModule} from './/app-routing.module';
-import { FilteredListPipe } from './list/filtered-list.pipe';
-import { AutoFocusDirective } from './auto-focus.directive';
+import {FilteredListPipe} from './list/filtered-list.pipe';
+import {AutoFocusDirective} from './auto-focus.directive';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { AutoFocusDirective } from './auto-focus.directive';
     AutoFocusDirective
   ],
   imports: [
-    BrowserModule, NgbModule.forRoot(), FormsModule, ReactiveFormsModule, AppRoutingModule
+    BrowserModule, NgbModule.forRoot(), FormsModule, ReactiveFormsModule, AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [ListService],
   bootstrap: [AppComponent]
