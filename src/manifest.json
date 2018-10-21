@@ -1,7 +1,7 @@
 {
   "name": "TODO Ula :)",
   "short_name": "TODO Ula",
-  "theme_color": "#1976d2",
+  "theme_color": "#f2e204",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",
