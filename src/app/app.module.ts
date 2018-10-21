@@ -8,7 +8,6 @@ import {ListComponent} from './list/list.component';
 import {FooterComponent} from './footer/footer.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ListService} from './list.service';
-import {ItemService} from './item.service';
 import {AppRoutingModule} from './/app-routing.module';
 import { FilteredListPipe } from './list/filtered-list.pipe';
 import { AutoFocusDirective } from './auto-focus.directive';
@@ -25,7 +24,7 @@ import { AutoFocusDirective } from './auto-focus.directive';
   imports: [
     BrowserModule, NgbModule.forRoot(), FormsModule, ReactiveFormsModule, AppRoutingModule
   ],
-  providers: [ListService, ItemService],
+  providers: [ListService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -2,19 +2,26 @@
   "name": "todo-app",
   "version": "0.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "9.11.1",
+    "npm": "6.4.1"
+  },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --prod"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^5.2.11",
+    "@angular/cli": "^7.0.2",
     "@angular/common": "^5.2.11",
     "@angular/compiler": "^5.2.11",
+    "@angular/compiler-cli": "^5.2.11",
     "@angular/core": "^5.2.11",
     "@angular/forms": "^5.2.11",
     "@angular/http": "^5.2.11",
@@ -23,18 +30,23 @@
     "@angular/router": "^5.2.11",
     "@ng-bootstrap/ng-bootstrap": "^1.1.2",
     "core-js": "^2.5.7",
+    "express": "^4.16.4",
+    "path": "^0.12.7",
     "rxjs": "^5.5.12",
+    "typescript": "~2.5.3",
     "uuid": "^3.3.2",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
-    "@angular/cli": "~1.7.4",
+    "@angular-devkit/build-angular": "~0.10.0",
+    "@angular/cli": "^7.0.2",
     "@angular/compiler-cli": "^5.2.11",
     "@angular/language-service": "^5.2.11",
     "@types/jasmine": "^2.8.9",
     "@types/jasminewd2": "^2.0.5",
     "@types/node": "^6.14.0",
     "codelyzer": "^4.5.0",
+    "enhanced-resolve": "^3.3.0",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "^2.0.5",
