@@ -7,6 +7,12 @@
   padding: 15px 10px;
 }
 
+@media (max-device-width: 640px) {
+  .item {
+    padding: 8px 10px;
+  }
+}
+
 .item:hover {
   color: #5d6269;
   background-color: #DDD;
@@ -20,7 +26,7 @@
   cursor: pointer;
   user-select: none;
   outline: none;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 .item.status-done .check-btn {
@@ -57,10 +63,19 @@
   display: none;
 }
 
+@media only screen and (max-device-width: 640px) {
+  .item .remove-btn[hidden] {
+    display: inline-block;
+  }
+}
+
+
 .item .edit-lbl {
   margin-left: 10px;
-  font-size: 28px;
+  font-size: 2rem;
+  line-height: 2;
   cursor: pointer;
+  margin-bottom: 0;
 }
 
 .item.status-done .edit-lbl {
@@ -69,7 +84,7 @@
 
 .item .form-control  {
   margin-left: 10px;
-  font-size: 28px;
+  font-size: 2rem;
   background-color: transparent;
   border: 0;
   border-radius: 0;

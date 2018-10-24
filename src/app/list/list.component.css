@@ -4,6 +4,12 @@
   position: relative;
 }
 
+@media only screen and (max-device-width: 640px) {
+  .list {
+    width: 100%;
+  }
+}
+
 .list .add-to-list {
   position: relative;
   background-color: #dcdcdc;
@@ -13,7 +19,7 @@
 }
 
 .add-to-list input.form-control {
-  font-size: 30px;
+  font-size:  2rem;
   height: auto;
   background-color: #00000005;
   border: 1px solid #e1e1e1;

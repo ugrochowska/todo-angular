@@ -3,3 +3,19 @@
 body {
   font-family: 'Raleway', sans-serif;
 }
+
+html {
+  font-size: 14px;
+}
+
+@media (max-device-width: 640px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.17rem; }
+h5 { font-size: .83rem; }
+h6 { font-size: .75rem; }
